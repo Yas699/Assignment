@@ -1,0 +1,77 @@
+/*A Java program to solve the problem of Grocery
+Date:13/03/2021*/
+
+import java.util.*;
+
+class Grocery
+{
+	float budget;
+	Scanner ob=new Scanner(System.in);
+	Grocery()
+	{
+		System.out.print("Please enter your Budget:");
+		this.budget=ob.nextFloat();
+	}
+	
+	void offer()
+	{
+		ArrayList product=new ArrayList();
+		ArrayList quantity=new ArrayList();
+		ArrayList cost=new ArrayList();
+		int choice,count=0;
+		while(this.budget!=0)
+		{
+			System.out.println("1.Add an Item");
+			System.out.println("2.Exit");
+			System.out.print("Please enter your choice:");
+			choice=ob.nextInt();
+			switch(choice)
+			{
+				case 1:
+				//String Product;
+				//String quantity;
+				float price;
+				System.out.print("\n\nPlease enter the product:");
+				product.add(ob.next());
+				System.out.print("\nPlease enter the quantity:");
+				quantity.add(ob.next());
+				System.out.print("\nPlease enter the price:");
+				price=ob.nextFloat();
+				if(budget>price)
+				{
+					this.budget=this.budget-price;
+					cost.add(price);
+					System.out.println("\n\nAmount Left:"+budget+"\n\n");	
+					count++;
+				}
+				else
+				{
+					System.out.println("\n\nCannot Buy Product ###(because budget left is "+this.budget+")\n\n");
+				}
+				break;
+				
+				case 2:
+				System.out.println("\n\nProduct Name \tQuantity \tPrice");
+				for(int i=0;i<count;i++)
+				{
+					System.out.println(product.get(i)+" \t\t"+quantity.get(i)+" \t\t"+cost.get(i));
+				}
+				System.exit(0);
+				break;
+				
+				default:
+				System.out.println("Invalid Input");
+			}
+		}
+	}
+	
+}
+
+class SuperMarket
+{
+	public static void main(String args[])
+	{
+		Grocery pragatiMart=new Grocery();
+		pragatiMart.offer();
+	}
+}

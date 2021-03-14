@@ -1,0 +1,88 @@
+/*A Java Program to solve a problem
+Date:13/03/2021*/
+
+import java.util.Scanner;
+
+class Cover
+{
+	int a;
+	Scanner obj=new Scanner(System.in);
+	Cover()
+	{
+		System.out.println("Please enter the number of lines to be printed:");
+		this.a=obj.nextInt();
+	}
+	
+	void starPattern()
+	{
+		int i=0,z=1,j,k,x,count=0;
+		x=this.a;
+		for(i=0;i<this.a;i++)
+		{
+			for(j=0;j<z;j++)
+			{
+				for(k=0;k<x;k++)
+				{
+					if(count==0)
+					{
+						System.out.print(" ");
+					}
+					else
+					{
+						break;
+					}
+					
+				}
+				System.out.print("* ");
+				count++;
+			}
+			count=0;
+			x--;
+			z++;
+			System.out.println("");
+		}	
+	}
+
+	void characterPattern()
+	{
+		int i=0,z=1,j,k,x,count=0;
+		x=this.a;
+		int letter=65;
+		for(i=0;i<this.a;i++)
+		{
+			for(j=0;j<z;j++)
+			{
+				for(k=0;k<x;k++)
+				{
+					if(count==0)
+					{
+						System.out.print(" ");
+					}
+					else
+					{
+						break;
+					}
+					
+				}
+				System.out.print((char)letter);
+				letter=(char)letter+1;
+				count++;
+			}
+			count=0;
+			x--;
+			z++;
+			System.out.println("");
+		}
+	}
+
+}
+
+class Pillow
+{
+	public static void main(String args[])
+	{
+		Cover ob=new Cover();
+		ob.characterPattern();
+		ob.starPattern();			
+	}
+}
